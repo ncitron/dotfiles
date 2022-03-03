@@ -1,4 +1,5 @@
-# Noah's Dotfile
+# Noah's Dotfiles
+My dotfiles for configuring vim, kitty, and zsh
 ## Requirements
 These are the tools I use with this setup. Not all of them are required.
 - neovim

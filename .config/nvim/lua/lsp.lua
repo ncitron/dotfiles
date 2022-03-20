@@ -1,7 +1,8 @@
 -- Language Server
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.gopls.setup{}
-require'lspconfig'.solc.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.solidity_ls.setup{}
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -36,7 +37,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'solidity_ls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,

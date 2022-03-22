@@ -1,8 +1,9 @@
 -- Language Server
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.solidity_ls.setup{}
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+require('lspconfig')['pyright'].setup {capabilities = capabilities}
+require('lspconfig')['gopls'].setup {capabilities = capabilities}
+require('lspconfig')['tsserver'].setup {capabilities = capabilities}
+require('lspconfig')['solidity_ls'].setup {capabilities = capabilities}
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

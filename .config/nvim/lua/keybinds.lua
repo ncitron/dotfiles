@@ -15,3 +15,5 @@ vim.api.nvim_set_keymap('n', 'D', '"_D', { noremap = true })
 vim.api.nvim_set_keymap('v', 'd', '"_d', { noremap = true })
 vim.api.nvim_set_keymap('n', 'c', '"_c', { noremap = true })
 
+-- Telescope
+vim.api.nvim_set_keymap('n', 'ff', ':Telescope find_files<CR>', { silent = true })

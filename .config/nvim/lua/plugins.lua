@@ -21,6 +21,8 @@ Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-vsnip')
 Plug('hrsh7th/vim-vsnip')
 Plug('psliwka/vim-smoothie')
+Plug('nvim-lua/plenary.nvim')
+Plug('nvim-telescope/telescope.nvim')
 
 vim.call('plug#end')
 
@@ -31,6 +33,9 @@ vim.g.NERDTreeMinimalUI = 1
 vim.opt.termguicolors = true
 require("bufferline").setup{
     options = {
-        offsets = {{ filetype = "nerdtree", text = "File Explorer", highlight = "Directory", text_align = "left"}}
+        offsets = {{ filetype = "nerdtree", text = "File Explorer", highlight = "Directory", text_align = "left"}},
     }
 }
+
+-- Icons
+require'nvim-web-devicons'.setup{}

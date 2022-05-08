@@ -5,9 +5,9 @@ vim.api.nvim_set_keymap('n', '<leader>n', ':NERDTreeToggle<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>N', ':NERDTreeFind<CR>', {})
 
 -- Buffers
-vim.api.nvim_set_keymap('n', '<C-h>', ':BufferLineCyclePrev<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-l>', ':BufferLineCycleNext<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-w>', ':Bdelete<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>;', ':BufferLineCyclePrev<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>\'', ':BufferLineCycleNext<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>w', ':Bdelete<CR>', {})
 
 -- Fix clipboard override
 vim.api.nvim_set_keymap('n', 'd', '"_d', { noremap = true })

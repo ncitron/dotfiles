@@ -18,5 +18,9 @@ vim.api.nvim_set_keymap('n', 'D', '"_D', { noremap = true })
 vim.api.nvim_set_keymap('v', 'd', '"_d', { noremap = true })
 vim.api.nvim_set_keymap('n', 'c', '"_c', { noremap = true })
 
+-- Glow
+vim.api.nvim_set_keymap('n', '<leader>g', ':Glow<CR>', {})
+
 -- Telescope
-vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':lua require"telescope.builtin".find_files({ hidden = true, file_ignore_patterns = {".git"} })<CR>', { silent = true })
+

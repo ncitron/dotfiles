@@ -1,9 +1,21 @@
+-- Custom Configs
+local util = require('lspconfig.util')
+local configs = require('lspconfig.configs')
+configs.move_analyzer = {
+    default_config = {
+        cmd = { "move-analyzer" },
+        filetypes = { "Move", "move" },
+        root_dir = util.root_pattern("Move.toml"),
+    }
+}
+
 -- Language Server
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('lspconfig')['pyright'].setup {capabilities = capabilities}
 require('lspconfig')['gopls'].setup {capabilities = capabilities}
 require('lspconfig')['tsserver'].setup {capabilities = capabilities}
 require('lspconfig')['solidity_ls'].setup {capabilities = capabilities}
+require('lspconfig')['move_analyzer'].setup{capabilities = capabilities}
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -38,14 +50,14 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'solidity_ls', 'gopls' }
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
-end
+-- local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'solidity_ls', 'gopls', 'move_analyzer'}
+-- for _, lsp in pairs(servers) do
+--   require('lspconfig')[lsp].setup {
+--     on_attach = on_attach,
+--     flags = {
+--       -- This will be the default in neovim 0.7+
+--       debounce_text_changes = 150,
+--     }
+--   }
+-- end
 

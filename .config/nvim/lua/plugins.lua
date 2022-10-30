@@ -23,6 +23,7 @@ Plug('ellisonleao/glow.nvim')
 Plug('psliwka/vim-smoothie')
 Plug('nvim-lua/plenary.nvim')
 Plug('nvim-telescope/telescope.nvim')
+Plug('urbit/hoon.vim')
 
 vim.call('plug#end')
 

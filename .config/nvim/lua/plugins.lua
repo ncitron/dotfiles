@@ -24,6 +24,7 @@ Plug('psliwka/vim-smoothie')
 Plug('nvim-lua/plenary.nvim')
 Plug('nvim-telescope/telescope.nvim')
 Plug('urbit/hoon.vim')
+Plug('nvim-treesitter/nvim-treesitter')
 
 vim.call('plug#end')
 

@@ -59,6 +59,10 @@ require('lspconfig')['rust_analyzer'].setup {
         }
     }
 }
+require('lspconfig')['elixirls'].setup {
+    capabilities = capabilities,
+    cmd = { "/Users/ncitron/elixir-ls/language_server.sh" };
+}
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches

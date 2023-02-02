@@ -28,6 +28,7 @@ require'nvim-treesitter.configs'.setup {
     "typescript",
     "javascript",
     "elixir",
+    "solidity",
   },
   auto_install = true,
   sync_install = false,

@@ -42,10 +42,32 @@ end
 
 -- Language Server
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('lspconfig')['pyright'].setup {capabilities = capabilities}
-require('lspconfig')['gopls'].setup {capabilities = capabilities}
-require('lspconfig')['tsserver'].setup {capabilities = capabilities}
-require('lspconfig')['solidity_ls'].setup {capabilities = capabilities}
+
+-- Python
+require('lspconfig')['pyright'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
+-- Go
+require('lspconfig')['gopls'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
+-- TypeScript
+require('lspconfig')['tsserver'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
+-- Solidity
+require('lspconfig')['solidity_ls'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
+-- Rust
 require('lspconfig')['rust_analyzer'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -59,21 +81,11 @@ require('lspconfig')['rust_analyzer'].setup {
         }
     }
 }
+
+-- Elixir
 require('lspconfig')['elixirls'].setup {
     capabilities = capabilities,
+    on_attach = on_attach,
     cmd = { "/Users/ncitron/elixir-ls/language_server.sh" };
 }
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver', 'solidity_ls', 'gopls' }
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
-end
 

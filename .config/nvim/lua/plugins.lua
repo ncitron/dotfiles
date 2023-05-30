@@ -25,6 +25,8 @@ Plug('nvim-lua/plenary.nvim')
 Plug('nvim-telescope/telescope.nvim')
 Plug('urbit/hoon.vim')
 Plug('nvim-treesitter/nvim-treesitter')
+Plug('kovisoft/paredit')
+Plug('kovisoft/slimv')
 
 vim.call('plug#end')
 

@@ -25,6 +25,7 @@ Plug('nvim-treesitter/nvim-treesitter')
 Plug('kovisoft/paredit')
 Plug('kovisoft/slimv')
 Plug('ThePrimeagen/harpoon')
+Plug('williamboman/mason.nvim')
 
 vim.call('plug#end')
 

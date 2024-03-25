@@ -1,3 +1,6 @@
+-- Mason setup
+require("mason").setup()
+
 -- Custom Configs
 local util = require('lspconfig.util')
 local configs = require('lspconfig.configs')
@@ -33,7 +36,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
@@ -41,7 +44,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Language Server
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Python
 require('lspconfig')['pyright'].setup {
@@ -69,14 +72,17 @@ require('lspconfig')['solidity_ls'].setup {
 
 -- Rust
 require('lspconfig')['rust_analyzer'].setup {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
     settings = {
         ['rust-analyzer'] = {
             diagnostics = {
                 enable = true,
                 disabled = {"unresolved-proc-macro"},
-                enableExperimental = true,
+                -- enableExperimental = true,
+            },
+            procMacro = {
+                enable = true
             }
         }
     }

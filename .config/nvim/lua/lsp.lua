@@ -72,14 +72,13 @@ require('lspconfig')['solidity_ls'].setup {
 
 -- Rust
 require('lspconfig')['rust_analyzer'].setup {
-    -- capabilities = capabilities,
+    capabilities = capabilities,
     on_attach = on_attach,
     settings = {
         ['rust-analyzer'] = {
             diagnostics = {
                 enable = true,
                 disabled = {"unresolved-proc-macro"},
-                -- enableExperimental = true,
             },
             procMacro = {
                 enable = true
